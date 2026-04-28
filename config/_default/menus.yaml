@@ -1,7 +1,6 @@
 # Navigation Links
-#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
-  #     desired widget in your `content/home/` folder.
-  #   The weight parameter defines the order that the links will appear in.
+#   To link a homepage section, use the URL `/#section-id` matching the block's `id`.
+#   The weight parameter defines the order that the links will appear in.
 
 main:
   - name: Bio
@@ -19,9 +18,3 @@ main:
   - name: Experience
     url: experience/
     weight: 20
-  - name: Projects
-    url: projects/
-    weight: 30
-  - name: Courses
-    url: courses/
-    weight: 40
