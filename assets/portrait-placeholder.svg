@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" role="img" aria-label="Portrait placeholder">
+  <rect width="240" height="300" fill="#f1ead8"/>
+  <g stroke="#192e1a" stroke-width="0.75" fill="none" opacity="0.35">
+    <line x1="20" y1="280" x2="220" y2="280"/>
+    <line x1="20" y1="20" x2="40" y2="20"/>
+    <line x1="20" y1="20" x2="20" y2="40"/>
+    <line x1="220" y1="20" x2="200" y2="20"/>
+    <line x1="220" y1="20" x2="220" y2="40"/>
+  </g>
+  <text x="120" y="158" font-family="EB Garamond, Georgia, serif" font-style="italic" font-size="15" fill="#192e1a" opacity="0.55" text-anchor="middle">[ portrait ]</text>
+  <text x="120" y="178" font-family="IBM Plex Sans, sans-serif" font-size="8" letter-spacing="2" fill="#192e1a" opacity="0.4" text-anchor="middle">REPLACE WITH YOUR PHOTO</text>
+</svg>
