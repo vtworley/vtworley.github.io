@@ -32,7 +32,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   theme:
     # Mode: 'light', 'dark', or 'system' (follows OS preference)
-    mode: system
+    mode: dark
     # Theme pack: name from data/themes/ or { light: "x", dark: "y" } for mix-and-match
     pack: "default"
     # Optional: Override theme pack colors
@@ -45,8 +45,8 @@ hugoblox:
     colors_dark: {}
     # Optional: Semantic surface color overrides
     surfaces:
-      background: ""
-      foreground: ""
+      background: "#2d3a25"               # dark olive green
+      foreground: "#ebe5d1"               # warm cream
       header:
         background: ""
         foreground: ""
