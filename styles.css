@@ -640,8 +640,8 @@ nav.primary li.has-menu.menu-right .submenu {
 }
 
 .card-t {
-  background: rgba(--accent-soft);
-  border-left: 3px solid var(--paper);
+  background: (--accent-soft);
+  border-left: 3px solid var(--accent);
   border-radius: 1px;
   padding: 1rem 1.25rem;
   transition: transform 200ms ease, box-shadow 200ms ease;
