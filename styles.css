@@ -647,6 +647,17 @@ nav.primary li.has-menu.menu-right .submenu {
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
+.card-t-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 640px) {
+  .card-t-columns { grid-template-columns: 1fr; }
+}
+
 .card-t:hover {
   transform: translateY(-1px);
   box-shadow: 0 0.6rem 1.5rem -0.5rem rgba(25, 46, 26, 0.12);
