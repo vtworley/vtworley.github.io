@@ -247,7 +247,7 @@ nav.primary li.has-menu.menu-right .submenu {
 .ph {
   background: var(--accent-soft);
   color: var(--ink);
-  padding: 0.05em 0.25em;
+  padding: 0.1em 0.1em;
   border-radius: 1px;
   font-style: italic;
 }
