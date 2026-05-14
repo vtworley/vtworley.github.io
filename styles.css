@@ -724,6 +724,211 @@ nav.primary li.has-menu.menu-right .submenu {
   margin-top: 0.4rem;
 }
 
+/* ==========================================================
+     TIMELINE — Combined spine + alternating cards
+     ========================================================== */
+
+ .tl {
+    position: relative;
+    padding: 0.5rem 0 1rem;
+  }
+ 
+  /* Central spine */
+  .tl::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      var(--accent) 0%,
+      var(--rule) 30%,
+      var(--rule) 100%
+    );
+    transform: translateX(-50%);
+  }
+ 
+  /* ── Each item ── */
+  .tl-item {
+    position: relative;
+    width: 50%;
+    padding-bottom: 2.8rem;
+  }
+ 
+  .tl-item:last-child { padding-bottom: 0; }
+ 
+  /* Odd = left side */
+  .tl-item:nth-child(odd) {
+    left: 0;
+    padding-right: 2.8rem;
+    text-align: right;
+  }
+ 
+  /* Even = right side */
+  .tl-item:nth-child(even) {
+    left: 50%;
+    padding-left: 2.8rem;
+    text-align: left;
+  }
+ 
+  /* ── Dots on spine ── */
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    top: 1.1rem;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    z-index: 2;
+  }
+ 
+  .tl-item:nth-child(odd)::before { right: -6px; }
+  .tl-item:nth-child(even)::before { left: -6px; }
+ 
+  /* Filled dot = current role */
+  .tl-item.current::before {
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(25, 46, 26, 0.1);
+  }
+ 
+  /* Hollow dot = past role */
+  .tl-item.past::before {
+    background: var(--paper);
+    border: 2px solid var(--rule);
+  }
+ 
+  /* ── Connector whisker ── */
+  .tl-item::after {
+    content: '';
+    position: absolute;
+    top: calc(1.1rem + 5px);
+    width: 1.8rem;
+    height: 1px;
+    background: var(--rule);
+  }
+ 
+  .tl-item:nth-child(odd)::after { right: 5px; }
+  .tl-item:nth-child(even)::after { left: 5px; }
+ 
+  /* ── Card ── */
+  .tl-card {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 1.1rem 1.3rem;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+ 
+  .tl-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0.6rem 1.5rem -0.5rem rgba(25, 46, 26, 0.12);
+  }
+ 
+  /* ── Card innards ── */
+  .tl-when {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    margin-bottom: 0.3rem;
+  }
+ 
+  .tl-role {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.12rem;
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: 0.15rem;
+  }
+ 
+  .tl-org {
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.55rem;
+  }
+ 
+  .tl-detail {
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 0.65rem;
+  }
+ 
+  /* ── Skill tags (pill style from .tags) ── */
+  .tl-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+ 
+  .tl-item:nth-child(odd) .tl-tags {
+    justify-content: flex-end;
+  }
+ 
+  .tl-tag {
+    font-family: var(--sans);
+    font-size: 0.74rem;
+    letter-spacing: 0.02em;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+ 
+  /* ── Mobile: collapse to left rail ── */
+  @media (max-width: 640px) {
+    .tl::before { left: 0.7rem; }
+ 
+    .tl-item,
+    .tl-item:nth-child(odd),
+    .tl-item:nth-child(even) {
+      width: 100%;
+      left: 0;
+      text-align: left;
+      padding-left: 2.8rem;
+      padding-right: 0;
+    }
+ 
+    .tl-item::before,
+    .tl-item:nth-child(odd)::before,
+    .tl-item:nth-child(even)::before {
+      left: 2px;
+      right: auto;
+    }
+ 
+    .tl-item::after,
+    .tl-item:nth-child(odd)::after,
+    .tl-item:nth-child(even)::after {
+      left: 10px;
+      right: auto;
+    }
+ 
+    .tl-item:nth-child(odd) .tl-tags {
+      justify-content: flex-start;
+    }
+  }
+ 
+  /* ── Print ── */
+  @media print {
+    body { background: white; color: black; }
+    .tl::before, .tl-item::before, .tl-item::after { display: none; }
+    .tl-item, .tl-item:nth-child(odd), .tl-item:nth-child(even) {
+      width: 100%; left: 0; text-align: left;
+      padding: 0 0 1rem; border-top: 1px solid #ccc;
+    }
+    .tl-card { background: none; border: none; box-shadow: none; padding: 0.5rem 0; }
+    .tl-tag { background: none; border: 1px solid #ccc; }
+  }
+
 /* Timeline (experience page) --------------------------------- */
 .timeline {
   list-style: none;
